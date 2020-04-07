@@ -1,5 +1,5 @@
 ﻿
-div.container {
+body {
     min-height: 100vh;
     background: linear-gradient(top left, #50a3a2 10%, transparent 20%);
     background: radial-gradient(circle at bottom, #39d24a 0%, transparent 80%);
@@ -12,15 +12,6 @@ div.container {
     border: 1px solid black;
     padding-left: 50px;
     padding-right: 50px;
-}
-
-body {
-    position: fixed;
-    left: 0;
-    height: 100px;
-    width: 100%;
-    margin-bottom: 200%;
-    text-align: center;
 }
 
 .flex-center {
@@ -245,4 +236,22 @@ body {
     80% {
         background-color: #1e90ff;
     }
+}
+
+/***************************************************************************
+****************************************************************************/
+
+header .ui.menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 1rem 0;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    background: #fff;
+    font-weight: 400;
+    border: 1px solid rgba(34,36,38,.15);
+    -webkit-box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 0 !important;
+    min-height: 4.857143em;
 }
