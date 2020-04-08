@@ -255,3 +255,35 @@ header .ui.menu {
     border-radius: 0 !important;
     min-height: 4.857143em;
 }
+
+.ui.container.segment {
+    /*display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 17% 19% 12%; */
+    text-align: center;
+    margin-top: 4%;
+    box-shadow: 0 15px 12px 0 rgba(0, 0, 0, 0.2), 18px 19px 22px 0 rgba(0, 0, 0, 0.19)
+}
+
+
+
+    .ui.container.segment #clock {
+        max-width: 500px;
+        margin: auto;
+        border-radius: 2px;
+        background-color: #fff;
+        font-size: 150px;
+        transition: all 0.2s ease;
+        text-align: center;
+    }
+
+.ui.button {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+.ui:hover {
+    -webkit-box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19) !important;
+    -moz-box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19) !important;
+    box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19) !important;
+}

@@ -7,19 +7,7 @@
     <link rel="stylesheet" href="~/css/lib/vanilla-semantic/css/vanilla-semantic-min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <script src="~/lib/xtag/xtag.js"></script>
-    <script>
-        //requirejs.config({
-        //    baseUrl: "js",
-        //    paths: {
-        //        "xtag": "/lib/xtag/xtag",
-        //        "x-pomodoro": "/js/components/x-pomodoro",
-        //    },
-        //    waitSeconds: 30
-        //});
-        //// Load the main app module to start the app
-        //requirejs(["/js/site.js"])
-    </script>
-</head>
+   </head>
 <body>
     <header>
         <div class="ui menu">
@@ -35,7 +23,8 @@
     </div>
     <script src="~/lib/vanilla-semantic/js/vanilla-semantic-min.js"></script>
     <script src="~/js/components/x-pomodoro.js"></script>
-    @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+    <script src="~/js/components/x-animate.js"></script>
+    <script src="~/js/components/x-control.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
