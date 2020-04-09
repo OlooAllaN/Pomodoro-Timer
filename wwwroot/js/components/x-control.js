@@ -20,6 +20,9 @@ xtag.register('x-control', {
         },
     },
     methods: {
+        /**
+         * Intializes the controls buttons on the control.
+         * */
         _intializeControlButtons: function () {
             var controls = '<div id="startTimer" class="center positive ui button">Start</div>' +
                            '<div id="stopTime" class="center negative ui button">Stop</div>' +
@@ -27,30 +30,62 @@ xtag.register('x-control', {
                              ;
             return controls;
         },
+        /**
+         * Disables the specified control button.
+         * @param {string} name -The id name of the button.
+         */
         _disableButton: function (name) {
             var button = document.getElementById(name);
             button.classList.add('disabled');
         },
+        /**
+         * Enables the specefied button
+         * @param {string} name - The id name of the button.
+         */
         _enableButton: function (name) {
             var button = document.getElementById(name);
             button.classList.remove('disabled');
         },
+
+        /**
+         * The start time of the clock.
+         * */
         _startTime: function () {
             this._resetVariables(25, 0, true);
         },
+
+        /**
+         * Starts the break for the clock.
+         * */
         _startBreak: function () {
             this._resetVariables(5, 0, true);
         },
+
+        /**
+         * Stops the time on the clock.
+         * */
         _stopTimer: function () {
             this._resetVariables(25, 0, false);
             this._updateDom();
         },
+
+        /**
+         * Formats the the number provided.
+         * @param {int} num -The specified number to format. 
+         */
         _toDoubleDigit: function (num) {
             if (num < 10) {
                 return "0" + parseInt(num, 10);
             }
             return num;
         },
+
+        /**
+         * Resets the pomodoro values.
+         * @param {int} mins -The minutes on the clock.
+         * @param {int} secs  -The seconds on the clock.
+         * @param {boolean} started - The boolean value.
+         */
         _resetVariables: function (mins, secs, started) {
             pomodoro.minutes = mins;
             pomodoro.seconds = secs;
@@ -58,17 +93,25 @@ xtag.register('x-control', {
             pomodoro.minutesDom = document.getElementsByTagName('x-pomodoro')[0].getElementsByTagName('span')[0];
             pomodoro.secondsDom = document.getElementsByTagName('x-pomodoro')[0].getElementsByTagName('span')[1]
         },
-
+        /**
+         * Resets the pomodoro state of the timer.
+         * */
         _timerComplete: function () {
             this._enableButton("startTimer")
             pomodoro.started = false;
         },
-
+        /**
+         * Updates the clock values.
+         * */
         _updateDom: function () {
             pomodoro.minutesDom.innerHTML = this._toDoubleDigit(pomodoro.minutes);
             pomodoro.secondsDom.innerHTML = this._toDoubleDigit(pomodoro.seconds);
         },
 
+        /**
+         * A clock timer interval function for keep track of the time.
+         * @param {obj} context - The pomdoro object
+         */
         _intervalCallback: function (context) {
             var self = context;
             if (!pomodoro.started) return false;

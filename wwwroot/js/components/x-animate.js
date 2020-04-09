@@ -6,6 +6,9 @@
         },
     },
     methods: {
+        /**
+         * Builds the annimate buggles for the screen.
+         * */
         _buildList: function () {
            str = '<div class="animate">' +
                 '<ul class="bg-bubbles">' +

@@ -6,6 +6,9 @@
         },
     },
     methods: {
+        /**
+         * Builds a form input
+         * */
         _buildForm: function () {
             var form =
                 '<div class="ui container">' +
@@ -30,11 +33,17 @@
             return form;
         },
 
+        /***
+         * Shows the Modal.
+         * */
         show: function () {
             var modal = this.getElementsByClassName('modal')[0];
             modal.style.display = "block";
         },
 
+        /**
+         * Hides the modal
+         * */
         hide: function () {
             var modal = this.getElementsByClassName('modal')[0];
             modal.style.display = "none";
