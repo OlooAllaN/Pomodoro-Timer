@@ -7870,7 +7870,7 @@
 
 		module = {
 			initialize: function () {
-				module.verbose('Initializing dimmer', $context);
+				module.verbose('Initializing dimmer', context);
 
 				module.create.id();
 				module.create.dimmer();
@@ -7902,6 +7902,7 @@
 					dimmable = ui(context).dimmer(dimmerSettings);
 					if (settings.detachable) {
 						module.verbose('Modal is detachable, moving content into dimmer');
+						var element = element;
 						ui(dimmable).dimmer('add content', element);
 					}
 					else {
@@ -8495,7 +8496,7 @@
 		onDeny: function () { return true; },
 
 		selector: {
-			close: '> .close',
+			close: '.close',
 			approve: '.actions .positive, .actions .approve, .actions .ok',
 			deny: '.actions .negative, .actions .deny, .actions .cancel',
 			modal: '.ui.modal'

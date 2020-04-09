@@ -282,8 +282,32 @@ header .ui.menu {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 
-.ui:hover {
-    -webkit-box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19) !important;
-    -moz-box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19) !important;
-    box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19) !important;
+    .ui.button:hover {
+        -webkit-box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19) !important;
+        -moz-box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19) !important;
+        box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19) !important;
+    }
+
+.modal-show {
+    display: none;
+    position: fixed !important;
+    padding-top: 98px !important;
+    left: 0 !important;
+    padding-left: 30% !important;
+    top: 0 !important;
+    padding-right: 30% !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: auto !important;
+    background-color: rgb(0,0,0) !important;
+    background-color: rgba(0,0,0,0.4) !important;
+    -webkit-transition: 1000s background-color ease;
+    transition: 1000s background-color ease
+}
+
+@media only screen and (min-width: 768px) {
+    .modal-show {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
 }

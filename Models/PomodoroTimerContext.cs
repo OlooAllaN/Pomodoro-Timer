@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 using Pomodoro.TableEntities;
 
 namespace Pomodoro.Models
@@ -15,14 +13,6 @@ namespace Pomodoro.Models
 
         public virtual DbSet<User> PomodoroUser { get; set; }
         public virtual DbSet<Task> UserTask { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("uid=sqlserver;Pwd=admin;server=tcp:35.192.99.144;Database=PomodoroTimer;");
-            }
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

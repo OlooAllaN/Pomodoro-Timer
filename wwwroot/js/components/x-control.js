@@ -14,8 +14,8 @@ xtag.register('x-control', {
         },
         inserted: function () {
             var self = this
-            pomodoro.minutesDom = document.querySelector('#minutes');
-            pomodoro.secondsDom = document.querySelector('#seconds')
+            pomodoro.minutesDom = document.getElementById('#minutes');
+            pomodoro.secondsDom = document.getElementById('#seconds')
             setInterval(function () { self._intervalCallback(self); }, 1000);
         },
     },
@@ -24,9 +24,17 @@ xtag.register('x-control', {
             var controls = '<div id="startTimer" class="center positive ui button">Start</div>' +
                            '<div id="stopTime" class="center negative ui button">Stop</div>' +
                             '<div id="break" class="center positive ui button">Break</div>';
+                             ;
             return controls;
         },
-
+        _disableButton: function (name) {
+            var button = document.getElementById(name);
+            button.classList.add('disabled');
+        },
+        _enableButton: function (name) {
+            var button = document.getElementById(name);
+            button.classList.remove('disabled');
+        },
         _startTime: function () {
             this._resetVariables(25, 0, true);
         },
@@ -47,9 +55,12 @@ xtag.register('x-control', {
             pomodoro.minutes = mins;
             pomodoro.seconds = secs;
             pomodoro.started = started;
+            pomodoro.minutesDom = document.getElementsByTagName('x-pomodoro')[0].getElementsByTagName('span')[0];
+            pomodoro.secondsDom = document.getElementsByTagName('x-pomodoro')[0].getElementsByTagName('span')[1]
         },
 
         _timerComplete: function () {
+            this._enableButton("startTimer")
             pomodoro.started = false;
         },
 
@@ -61,6 +72,7 @@ xtag.register('x-control', {
         _intervalCallback: function (context) {
             var self = context;
             if (!pomodoro.started) return false;
+            this._disableButton("startTimer")
             if (pomodoro.seconds == 0) {
                 if (pomodoro.minutes == 0) {
                     self._timerComplete();
@@ -74,13 +86,16 @@ xtag.register('x-control', {
             self._updateDom();
         },
 
+
     },
   
     events: {
         'click:delegate(.ui.button#startTimer)': function (e) {
-            this.parentElement._startTime()
+            var modal = document.getElementsByTagName("x-form");
+            modal[0].show();
         },
         'click:delegate(.ui.button#stopTime)': function (e) {
+            this.parentElement._enableButton("startTimer")
             this.parentElement._stopTimer()
         },
         'click:delegate(.ui.button#break)': function (e) {
